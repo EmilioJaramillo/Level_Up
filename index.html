@@ -5,11 +5,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>level Up</title>
 
+    <link rel="stylesheet" href="css/estilos.css">
+
+    <script src="js/main.js" defer></script>
+
 </head>
 <body>
     <header>
-        <!-- nombre de la tienda -->
-        <h1>Level Up</h1>
+        <img src="img/logo_levelup.png" alt="Logo Level Up" class="logo-header">
 
         <!-- Barra de búsqueda y acceso usuario/carrito (se agregará después) -->
     <form class="busqueda" action="#" method="get">
@@ -23,96 +26,123 @@
     
     </header>
     <nav>
-        <!-- menus de navegacion-->
-
-        <ul>
-            <li><a href="#consolas">Consolas</a></li>
-            <li><a href="#juegos">Juegos</a></li>
-            <li><a href="#accesorios">Accesorios</a></li>
-            <li><a href="#pcs-gamers">PCs Gamers</a></li>
-            <li><a href="#ofertas">Ofertas</a></li>
-        </ul>
+        <!-- Menú desplegable de categorías -->
+        <div class="dropdown">
+            <button class="dropbtn">Categorías ▼</button>
+            <div class="dropdown-content">
+                <a href="#" onclick="mostrarCategoria('consolas');return false;">Consolas</a>
+                <a href="#" onclick="mostrarCategoria('juegos');return false;">Juegos</a>
+                <a href="#" onclick="mostrarCategoria('accesorios');return false;">Accesorios</a>
+                <a href="#" onclick="mostrarCategoria('pcs-gamers');return false;">PCs Gamers</a>
+                <a href="#" onclick="mostrarCategoria('ofertas');return false;">Ofertas</a>
+            </div>
+        </div>
     </nav>
     <main>
         <section class="bienvenida">
             <h2>¡Bienvenido a Level Up!</h2>
             <p>Tu tienda gamer favorita. Encuentra consolas, juegos, accesorios y PCs gamers al mejor precio. ¡Potencia tu experiencia de juego con nosotros!</p>
         </section>
-        <!-- listado de productos -->
+        <!-- lista de productos -->
         <section class="productos">
             <section id="consolas">
                 <h3>Consolas</h3>
-                <article class="producto">
-                    <img src="img/play5.jpg" alt="Consola Gamer" width="200" height="200">
-                    <h4>PlayStation 5</h4>
-                    <p>Precio: $499.990</p>
-                    <button>Agregar al carrito</button>
-                </article>
-                <article class="producto">
-                    <img src="img/switch2.jpg" alt="Switch 2" width="200" height="200">
-                    <h4>Switch 2</h4>
-                    <p>Precio: $459.990</p>
-                    <button>Agregar al carrito</button>
-                </article>
+                <div class="productos-categoria">
+                    <article class="producto">
+                        <a href="html/detalle-play5.html">
+                            <img src="img/play5.jpg" alt="Consola PlayStation 5" width="200" height="200">
+                        </a>
+                        <h4><a href="html/detalle-play5.html">PlayStation 5</a></h4>
+                        <p>Precio: $499.990</p>
+                        <button>Agregar al carrito</button>
+                    </article>
+                    <article class="producto">
+                        <a href="html/detalle-switch2.html">
+                            <img src="img/switch2.jpg" alt="Consola Nintendo Switch 2" width="200" height="200">
+                        </a>
+                        <h4><a href="html/detalle-switch2.html">Switch 2</a></h4>
+                        <p>Precio: $459.990</p>
+                        <button>Agregar al carrito</button>
+                    </article>
+                </div>
             </section>
             <section id="accesorios">
                 <h3>Accesorios</h3>
-                <article class="producto">
-                    <img src="img/teclado_mecanico.jpg" alt="Teclado Mecánico" width="200" height="200">
-                    <h4>Teclado Mecánico</h4>
-                    <p>Precio: $49.990</p>
-                    <button>Agregar al carrito</button>
-                </article>
-                <article class="producto">
-                    <img src="img/mouse_gamer.jpg" alt="Mouse Gamer" width="200" height="200">
-                    <h4>Mouse Gamer</h4>
-                    <p>Precio: $19.990</p>
-                    <button>Agregar al carrito</button>
-                </article>
-                <article class="producto">
-                    <img src="img/monitor_gamer.png" alt="Monitor Gamer" width="200" height="200">
-                    <h4>Monitor Gamer</h4>
-                    <p>Precio: $299.990</p>
-                    <button>Agregar al carrito</button>
-                </article>
-                <article class="producto">
-                    <img src="img/auriculares_gamer.jpg" alt="Auriculares Gamer" width="200" height="200">
-                    <h4>Auriculares Gamer</h4>
-                    <p>Precio: $89.990</p>
-                    <button>Agregar al carrito</button>
-                </article>
+                <div class="productos-categoria">
+                    <article class="producto">
+                        <a href="html/detalle-teclado.html">
+                            <img src="img/teclado_mecanico.jpg" alt="Teclado mecánico retroiluminado para gaming" width="200" height="200">
+                        </a>
+                        <h4><a href="html/detalle-teclado.html">Teclado Mecánico</a></h4>
+                        <p>Precio: $49.990</p>
+                        <button>Agregar al carrito</button>
+                    </article>
+                    <article class="producto">
+                        <a href="html/detalle-mouse.html">
+                            <img src="img/mouse_gamer.jpg" alt="Mouse gamer ergonómico con luces LED" width="200" height="200">
+                        </a>
+                        <h4><a href="html/detalle-mouse.html">Mouse Gamer</a></h4>
+                        <p>Precio: $19.990</p>
+                        <button>Agregar al carrito</button>
+                    </article>
+                    <article class="producto">
+                        <a href="html/detalle-monitor.html">
+                            <img src="img/monitor_gamer.png" alt="Monitor gamer 144Hz Full HD" width="200" height="200">
+                        </a>
+                        <h4><a href="html/detalle-monitor.html">Monitor Gamer</a></h4>
+                        <p>Precio: $299.990</p>
+                        <button>Agregar al carrito</button>
+                    </article>
+                    <article class="producto">
+                        <a href="html/detalle-auriculares.html">
+                            <img src="img/auriculares_gamer.jpg" alt="Auriculares gamer con micrófono y sonido envolvente" width="200" height="200">
+                        </a>
+                        <h4><a href="html/detalle-auriculares.html">Auriculares Gamer</a></h4>
+                        <p>Precio: $89.990</p>
+                        <button>Agregar al carrito</button>
+                    </article>
+                </div>
             </section>
             <section id="pcs-gamers">
                 <h3>PCs Gamers</h3>
-                <article class="producto">
-                    <img src="img/pc_gamer.jpg" alt="PC Gamer" width="200" height="200">
-                    <h4>PC Gamer</h4>
-                    <p>Precio: $1.299.990</p>
-                    <button>Agregar al carrito</button>
-                </article>
+                <div class="productos-categoria">
+                    <article class="producto">
+                        <a href="html/detalle-pc.html">
+                            <img src="img/pc_gamer.jpg" alt="PC gamer de alto rendimiento" width="200" height="200">
+                        </a>
+                        <h4><a href="html/detalle-pc.html">PC Gamer</a></h4>
+                        <p>Precio: $1.299.990</p>
+                        <button>Agregar al carrito</button>
+                    </article>
+                </div>
             </section>
             <section id="juegos">
                 <h3>Juegos</h3>
-                <article class="producto">
-                    <img src="img/gta_6.jpg" alt="Juego de Acción" width="200" height="200">
-                    <h4>Juego de GTA VI</h4>
-                    <p>Precio: $119.990</p>
-                    <button>Agregar al carrito</button>
-                </article>
+                <div class="productos-categoria">
+                    <article class="producto">
+                        <a href="html/detalle-gta6.html">
+                            <img src="img/gta_6.jpg" alt="Videojuego GTA VI para consolas y PC" width="200" height="200">
+                        </a>
+                        <h4><a href="html/detalle-gta6.html">Juego de GTA VI</a></h4>
+                        <p>Precio: $119.990</p>
+                        <button>Agregar al carrito</button>
+                    </article>
+                </div>
             </section>
             <section id="ofertas">
                 <h3>Ofertas</h3>
-                <!-- Aquí puedes agregar productos en oferta -->
-                <p>Pronto más ofertas exclusivas</p>
+                <div class="productos-categoria">
+                    <p>Pronto más ofertas exclusivas</p>
+                </div>
             </section>
 </section>
     </main>
     <footer>
         <section class="contacto">
             <h4>Contacto de los participantes</h4>
-            <ul>
-                <li><a href="mailto:em.jaramillo@duocuc.cl">em.jaramillo@duocuc.cl</a></li>
-            </ul>
+            
+                <p><a href="mailto:em.jaramillo@duocuc.cl">em.jaramillo@duocuc.cl</a></p>
+            
         </section>
         <section class="github">
             <h4>Repositorio del proyecto</h4>
