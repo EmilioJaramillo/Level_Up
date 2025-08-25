@@ -1,3 +1,155 @@
+/* Botón de carrito moderno */
+.carrito {
+    position: relative;
+    display: flex;
+    align-items: center;
+    background: #23272a;
+    color: #ffd600;
+    border: none;
+    border-radius: 8px;
+    padding: 8px 20px 8px 12px;
+    font-size: 18px;
+    font-weight: bold;
+    cursor: pointer;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.10);
+    transition: background 0.2s, transform 0.2s;
+    gap: 10px;
+}
+.carrito:hover {
+    background: #ff784e;
+    color: #fff;
+    transform: scale(1.05);
+}
+.carrito-icon {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+.carrito-badge {
+    position: absolute;
+    top: -8px;
+    right: -8px;
+    background: #ffd600;
+    color: #23272a;
+    border-radius: 50%;
+    width: 22px;
+    height: 22px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 14px;
+    font-weight: bold;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+    border: 2px solid #23272a;
+    transition: background 0.2s;
+}
+.carrito-text {
+    margin-left: 6px;
+}
+.busqueda input[type="text"] {
+    background: transparent;
+    color: #ffd600;
+    font-size: 16px;
+    padding: 8px 8px 8px 0;
+    width: 180px;
+}
+.busqueda input[type="text"]::placeholder {
+    color: #ffd60099;
+}
+.busqueda button {
+    background: #ff5722;
+    color: #fff;
+    border: none;
+    border-radius: 6px;
+    padding: 8px 16px;
+    font-weight: bold;
+    cursor: pointer;
+    margin-left: 8px;
+    transition: background 0.2s;
+}
+.busqueda button:hover {
+    background: #ff784e;
+    color: #18181b;
+}
+/* Botón cancelar venta */
+.btn-cancelar-venta {
+    background: #23272a;
+    color: #ffd600;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: bold;
+    margin-top: 20px;
+    margin-left: 10px;
+    font-size: 16px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+}
+.btn-cancelar-venta:hover {
+    background: #ff784e;
+    color: #fff;
+}
+/* Botón eliminar del carrito */
+.btn-eliminar-carrito {
+    background: #ff784e;
+    color: #fff;
+    border: none;
+    padding: 4px 10px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 13px;
+    margin-left: 10px;
+}
+.btn-eliminar-carrito:hover {
+    background: #ff5722;
+}
+
+/* Botón terminar compra */
+.btn-terminar-compra {
+    background: #ffd600;
+    color: #23272a;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: bold;
+    margin-top: 20px;
+    font-size: 16px;
+}
+.btn-terminar-compra:hover {
+    background: #ffe066;
+}
+/* Modal del carrito */
+.modal-carrito {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0,0,0,0.5);
+    display: none;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+}
+.contenido-carrito {
+    background: #23272a;
+    color: #ffd600;
+    padding: 32px;
+    border-radius: 12px;
+    min-width: 320px;
+    max-width: 90vw;
+    box-shadow: 0 8px 32px rgba(0,0,0,0.35);
+}
+.btn-cerrar-carrito {
+    margin-top: 20px;
+    background: #ff5722;
+    color: #fff;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 6px;
+    cursor: pointer;
+}
 /* Estilos básicos para Level Up */
 a {
     color: #ffd600;
@@ -64,7 +216,7 @@ a:hover {
 }
 body {
     font-family: Arial, sans-serif;
-    background: linear-gradient(135deg, #18181b 0%, #23272a 100%);
+    background: linear-gradient(135deg, #f5f5f5 0%, #e0e0e0 100%);
     color: #f5f5f5;
     margin: 0;
     padding: 0;
@@ -145,11 +297,35 @@ main {
     color: #18181b;
 }
 footer {
-    background-color: #23272a;
+    background: #18181b;
     color: #ffd600;
-    text-align: center;
-    padding: 15px 0;
-    margin-top: 40px;
+    padding: 10px 32px;
+    font-size: 0.85rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-top: 32px;
+}
+footer section {
+    margin-bottom: 2px;
+    text-align: left;
+}
+footer .github {
+    text-align: right;
+}
+@media (max-width: 700px) {
+    footer {
+        flex-direction: column;
+        align-items: stretch;
+        padding: 10px 8px;
+    }
+    footer section {
+        text-align: left;
+        margin-bottom: 8px;
+    }
+    footer .github {
+        text-align: left;
+    }
 }
 .logo-header {
     width: 120px;
