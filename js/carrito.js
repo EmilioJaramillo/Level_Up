@@ -55,7 +55,8 @@
     }
 
     window.initCarrito = function() {
-        btnCarrito = document.querySelector('.carrito');
+        // Buscar el botón del carrito por clase y texto
+        btnCarrito = document.querySelector('.carrito, .btn-outline-warning');
         // Delegación de eventos para agregar al carrito
         var productosContenedor = document.querySelector('.productos');
         if (productosContenedor) {
@@ -83,6 +84,6 @@
         btnCerrarCarrito.textContent = 'Cerrar';
         btnCerrarCarrito.className = 'btn-cerrar-carrito';
         btnCerrarCarrito.onclick = () => { modalCarrito.style.display = 'none'; };
-        btnCarrito.addEventListener('click', mostrarCarrito);
+        if (btnCarrito) btnCarrito.addEventListener('click', mostrarCarrito);
     };
 })();
