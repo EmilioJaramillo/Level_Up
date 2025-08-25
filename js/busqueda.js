@@ -1,6 +1,5 @@
 // Funciones y lógica para el filtro de búsqueda y mostrar productos
 (function(){
-	let categoriaActual = 'consolas';
 	let inputBusqueda = null;
 	let mensajeNoResultados = null;
 	let secciones = null;
@@ -8,24 +7,36 @@
 	function filtrarProductos() {
 		const query = inputBusqueda.value.toLowerCase();
 		let algunoVisible = false;
-		const seleccionada = document.getElementById(categoriaActual);
-		if (seleccionada) {
-			const productos = seleccionada.querySelectorAll('.producto');
-			productos.forEach(prod => {
-				const nombre = prod.querySelector('h4')?.textContent.toLowerCase() || '';
-				if (query === '' || nombre.includes(query)) {
-					prod.style.display = '';
-					algunoVisible = true;
-				} else {
-					prod.style.display = 'none';
-				}
+		// Oculta bienvenida si hay búsqueda
+		var bienvenida = document.querySelector('.bienvenida');
+		if (bienvenida && query !== '') bienvenida.style.display = 'none';
+		let productos = [];
+		const categoriaActual = window.getCategoriaActual ? window.getCategoriaActual() : null;
+		if (categoriaActual) {
+			const seleccionada = document.getElementById(categoriaActual);
+			if (seleccionada) {
+				productos = Array.from(seleccionada.querySelectorAll('.producto'));
+			}
+		} else {
+			// Si no hay categoría seleccionada, buscar en todas las secciones
+			const secciones = document.querySelectorAll('.productos > section');
+			secciones.forEach(sec => {
+				productos = productos.concat(Array.from(sec.querySelectorAll('.producto')));
 			});
 		}
+		productos.forEach(prod => {
+			const nombre = prod.querySelector('h4')?.textContent.toLowerCase() || '';
+			if (query === '' || nombre.includes(query)) {
+				prod.style.display = '';
+				algunoVisible = true;
+			} else {
+				prod.style.display = 'none';
+			}
+		});
 		mensajeNoResultados.style.display = algunoVisible ? 'none' : '';
 	}
 
 	window.initBusqueda = function(_categoriaActual, _secciones) {
-		categoriaActual = _categoriaActual;
 		secciones = _secciones;
 		const formBusqueda = document.querySelector('.busqueda');
 		mensajeNoResultados = document.createElement('div');
@@ -45,7 +56,9 @@
 		window.filtrarProductos = filtrarProductos;
 	};
 	window.setCategoriaBusqueda = function(idCategoria) {
-		categoriaActual = idCategoria;
-		if (inputBusqueda) filtrarProductos();
+		// Esperar a que la sección esté visible antes de filtrar
+		setTimeout(() => {
+			if (inputBusqueda) filtrarProductos();
+		}, 50);
 	};
 })();
